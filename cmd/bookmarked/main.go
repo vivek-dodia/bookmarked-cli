@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/yourusername/bookmarked/internal/config"
-	"github.com/yourusername/bookmarked/internal/service"
+	"github.com/vivek-dodia/bookmarked-cli/internal/config"
+	"github.com/vivek-dodia/bookmarked-cli/internal/service"
 )
 
 var (

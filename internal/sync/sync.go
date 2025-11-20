@@ -9,7 +9,7 @@ import (
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
-	"github.com/yourusername/bookmarked/internal/config"
+	"github.com/vivek-dodia/bookmarked-cli/internal/config"
 )
 
 type GitSync struct {

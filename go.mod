@@ -1,4 +1,4 @@
-module github.com/yourusername/bookmarked
+module github.com/vivek-dodia/bookmarked-cli
 
 go 1.21
 

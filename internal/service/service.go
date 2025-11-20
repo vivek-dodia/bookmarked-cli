@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/yourusername/bookmarked/internal/bookmarks"
-	"github.com/yourusername/bookmarked/internal/config"
-	"github.com/yourusername/bookmarked/internal/sync"
-	"github.com/yourusername/bookmarked/internal/watcher"
+	"github.com/vivek-dodia/bookmarked-cli/internal/bookmarks"
+	"github.com/vivek-dodia/bookmarked-cli/internal/config"
+	"github.com/vivek-dodia/bookmarked-cli/internal/sync"
+	"github.com/vivek-dodia/bookmarked-cli/internal/watcher"
 )
 
 type Service struct {
