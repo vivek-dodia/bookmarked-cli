@@ -89,27 +89,28 @@ func statusWindows() error {
 	return nil
 }
 
-// Stub functions for other platforms (not used on Windows)
+
+// Stub functions for other platforms
 func installMacOS() error {
-	return fmt.Errorf("macOS installation not supported on Windows")
+	return fmt.Errorf("macOS installation not available on Windows")
 }
 
 func installLinux() error {
-	return fmt.Errorf("Linux installation not supported on Windows")
+	return fmt.Errorf("Linux installation not available on Windows")
 }
 
 func uninstallMacOS() error {
-	return fmt.Errorf("macOS uninstallation not supported on Windows")
+	return fmt.Errorf("macOS uninstallation not available on Windows")
 }
 
 func uninstallLinux() error {
-	return fmt.Errorf("Linux uninstallation not supported on Windows")
+	return fmt.Errorf("Linux uninstallation not available on Windows")
 }
 
 func statusMacOS() error {
-	return fmt.Errorf("macOS status not supported on Windows")
+	return fmt.Errorf("macOS status not available on Windows")
 }
 
 func statusLinux() error {
-	return fmt.Errorf("Linux status not supported on Windows")
+	return fmt.Errorf("Linux status not available on Windows")
 }

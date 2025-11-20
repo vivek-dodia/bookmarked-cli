@@ -131,3 +131,29 @@ func statusLinux() error {
 	fmt.Println(string(output))
 	return nil
 }
+
+
+// Stub functions for other platforms
+func installWindows() error {
+	return fmt.Errorf("Windows installation not available on Linux")
+}
+
+func installMacOS() error {
+	return fmt.Errorf("macOS installation not available on Linux")
+}
+
+func uninstallWindows() error {
+	return fmt.Errorf("Windows uninstallation not available on Linux")
+}
+
+func uninstallMacOS() error {
+	return fmt.Errorf("macOS uninstallation not available on Linux")
+}
+
+func statusWindows() error {
+	return fmt.Errorf("Windows status not available on Linux")
+}
+
+func statusMacOS() error {
+	return fmt.Errorf("macOS status not available on Linux")
+}
