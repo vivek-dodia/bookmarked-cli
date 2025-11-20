@@ -56,8 +56,8 @@ changelog:
 
 release:
   github:
-    owner: yourusername
-    name: bookmarked
+    owner: vivek-dodia
+    name: bookmarked-cli
   draft: false
   prerelease: auto
   name_template: "{{.ProjectName}}-v{{.Version}}"
@@ -72,4 +72,4 @@ release:
     bookmarked install
     ```
 
-    See the [README](https://github.com/yourusername/bookmarked#readme) for detailed instructions.
+    See the [README](https://github.com/vivek-dodia/bookmarked-cli#readme) for detailed instructions.
