@@ -1,0 +1,25 @@
+# Bookmarked Configuration Example
+# Copy this to ~/.bookmarked/config.yaml and fill in your details
+
+# GitHub repository to sync bookmarks to (format: username/repo-name)
+# Example: "johndoe/my-bookmarks"
+github_repo: ""
+
+# GitHub personal access token with repo write permissions
+# Create one at: https://github.com/settings/tokens
+# Required scope: repo
+github_token: ""
+
+# Branch to push to (optional, default: main)
+github_branch: "main"
+
+# Debounce delay in milliseconds (optional, default: 500)
+# This prevents too many commits when Chrome makes multiple changes quickly
+debounce_ms: 500
+
+# Log file path (optional, logs to stdout if not set)
+# Example: "/Users/username/.bookmarked/bookmarked.log"
+log_path: ""
+
+# Commit message template (optional, default: "Update bookmarks")
+commit_message: "Update bookmarks"

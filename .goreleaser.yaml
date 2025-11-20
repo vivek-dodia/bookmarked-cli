@@ -1,0 +1,75 @@
+project_name: bookmarked
+
+before:
+  hooks:
+    - go mod tidy
+    - go mod download
+
+builds:
+  - id: bookmarked
+    main: ./cmd/bookmarked
+    binary: bookmarked
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+
+archives:
+  - id: bookmarked
+    format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- .Os }}_
+      {{- .Arch }}
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^ci:'
+      - '^chore:'
+      - Merge pull request
+      - Merge branch
+
+release:
+  github:
+    owner: yourusername
+    name: bookmarked
+  draft: false
+  prerelease: auto
+  name_template: "{{.ProjectName}}-v{{.Version}}"
+  footer: |
+    ## Installation
+
+    Download the appropriate binary for your platform, extract it, and run:
+
+    ```bash
+    bookmarked init
+    # Edit config file with your GitHub repo and token
+    bookmarked install
+    ```
+
+    See the [README](https://github.com/yourusername/bookmarked#readme) for detailed instructions.
