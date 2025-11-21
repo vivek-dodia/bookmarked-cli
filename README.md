@@ -8,14 +8,14 @@ A minimal, cross-platform background service that automatically syncs your Chrom
 
 ## Features
 
-- 🔄 **Automatic Sync**: Watches Chrome bookmarks and syncs changes to GitHub in real-time
-- 💻 **Cross-Platform**: Works seamlessly on Windows, macOS, and Linux
-- ⚡ **Minimal**: Single binary with zero runtime dependencies (only Git required)
-- 📝 **Formatted JSON**: Bookmarks saved as pretty-printed JSON for readable diffs
-- ⏱️ **Smart Debouncing**: 500ms debounce prevents excessive commits during bulk operations
-- 🔒 **Secure**: Uses GitHub tokens, private repository recommended
-- 🚀 **Background Service**: Runs silently with automatic restart on failure
-- 📊 **Version Control**: Full history of bookmark changes via Git
+- **Automatic Sync**: Watches Chrome bookmarks and syncs changes to GitHub in real-time
+- **Cross-Platform**: Works seamlessly on Windows, macOS, and Linux
+- **Minimal**: Single binary with zero runtime dependencies (only Git required)
+- **Formatted JSON**: Bookmarks saved as pretty-printed JSON for readable diffs
+- **Smart Debouncing**: 500ms debounce prevents excessive commits during bulk operations
+- **Secure**: Uses GitHub tokens, private repository recommended
+- **Background Service**: Runs silently with automatic restart on failure
+- **Version Control**: Full history of bookmark changes via Git
 
 ## Table of Contents
 
@@ -172,7 +172,7 @@ Create a new **private** repository on GitHub to store your bookmarks:
 # Example: https://github.com/username/my-bookmarks
 ```
 
-**⚠️ Important**: Use a **private repository** since bookmarks may contain sensitive URLs.
+**Important**: Use a **private repository** since bookmarks may contain sensitive URLs.
 
 ### 2. Generate GitHub Personal Access Token
 
@@ -570,4 +570,4 @@ If you encounter any issues or have questions:
 
 ---
 
-**Made with ❤️ for Chrome users who want their bookmarks backed up and version-controlled.**
+**Made for Chrome users who want their bookmarks backed up and version-controlled.**
