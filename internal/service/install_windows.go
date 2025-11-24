@@ -36,12 +36,49 @@ func installWindows() error {
 	// Delete existing task if it exists
 	exec.Command("schtasks", "/Delete", "/TN", taskName, "/F").Run()
 
-	// Create new task
+	// Create XML configuration for hidden task
+	xmlContent := fmt.Sprintf(`<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>Bookmarked - Chrome Bookmark Sync Service</Description>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <Hidden>true</Hidden>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+  </Settings>
+  <Triggers>
+    <LogonTrigger>
+      <Enabled>true</Enabled>
+    </LogonTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>%s</Command>
+      <Arguments>start</Arguments>
+    </Exec>
+  </Actions>
+</Task>`, exePath)
+
+	// Save XML to temp file
+	xmlPath := filepath.Join(logDir, "task.xml")
+	if err := os.WriteFile(xmlPath, []byte(xmlContent), 0644); err != nil {
+		return fmt.Errorf("failed to write task XML: %w", err)
+	}
+	defer os.Remove(xmlPath)
+
+	// Create task from XML
 	cmd := exec.Command("schtasks", "/Create",
 		"/TN", taskName,
-		"/TR", fmt.Sprintf("\"%s\" start", exePath),
-		"/SC", "ONLOGON",
-		"/RL", "HIGHEST",
+		"/XML", xmlPath,
 		"/F",
 	)
 
@@ -51,7 +88,8 @@ func installWindows() error {
 	}
 
 	fmt.Println("✓ Service installed successfully")
-	fmt.Println("  The service will start automatically when you log in")
+	fmt.Println("  The service will run hidden in the background")
+	fmt.Println("  It will start automatically when you log in")
 	fmt.Printf("  Logs: %s\n", logPath)
 	fmt.Println("\nTo start now, run: bookmarked start")
 	fmt.Println("To check status, run: bookmarked status")
